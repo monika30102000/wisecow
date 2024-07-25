@@ -61,9 +61,6 @@ jobs:
         cat ${HOME}/.kube/config
         
     - name: Apply Kubernetes manifests
+      continue-on-error: true
       run: |
-         kubectl create -f k8s/ --validate=false
-         kubectl get service
-
-        
-
+         kubectl create -f k8s/

@@ -20,4 +20,3 @@ spec:
             name: wisecow-service
             port:
               number: 80
-

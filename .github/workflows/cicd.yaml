@@ -54,4 +54,10 @@ jobs:
         echo "${{ secrets.KUBE_CONFIG }}" | base64 --decode > ${HOME}/.kube/config
         echo "Kubeconfig content:"
         cat ${HOME}/.kube/config
+    - name: Deploy to Kubernetes
+      continue-on-error: true
+      run: |
+        kubectl create -f root/wisecow/service.yaml
+        kubectl create -f root/wisecow/deployment.yaml
+        
 
